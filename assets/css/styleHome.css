@@ -1,0 +1,128 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+body {
+    background-color: #000000;
+}
+
+.background-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1; /* Para colocar o contêiner atrás de outros elementos */
+}
+
+.background-image {
+    width: 100%;
+    height: 100vh;
+    margin-top: 15rem;
+
+}
+
+.card {
+    box-shadow: rgba(94, 75, 112, 0.863) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+    background: #25152c;
+    padding: 1rem;
+    border-radius: 13px;
+    
+}
+
+.card-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card-head h2 {
+    color: #f0eaea;
+    font-size: 1.8rem;
+    font-weight: 500;
+}
+
+.card-head span {
+    font-size: 2rem;
+}
+
+.card-head span.clipBoard {
+    color: #53b1b8;
+}
+
+.card-head span.clock {
+    color:  #399240;
+}
+
+.card-head span.check {
+    color: #7d27ee;
+}
+
+.card-head span.clock {
+    color: #7c8ce6;
+}
+
+.card-head span.people {
+    color:  #eb68b9;
+}
+
+.card-progress small {
+    color: #E3DBDB;
+    font-size: .8rem;
+    font-weight: 600;
+    letter-spacing: 2px;  
+}
+
+.card-indicator {
+    margin: .7rem 0rem;
+    height: 10px;
+    border-radius: 4px;
+    background: #e3DBDB;
+    overflow: hidden;
+}
+
+.indicator {
+    height: 10px;
+    border-radius: 4px;
+}
+
+.indicator.one, .indicator.three, .indicator.four {
+    width: 100%;
+    background: #06c0e0;
+}
+
+
+
+
+.indicator.five{
+    background: #ffffff;
+}
+
+.indicator.six {
+    background:#cf2313;
+}
+.indicator.seven {
+    background:#807e69;
+}
+.indicator.eight {
+    background:#807e69;
+}
+.indicator.nine {
+    background:#179c19;
+}
+
+
+h5 {
+    color: #ffffff;
+}
+
+.status-aberta {
+    color: #dee9de;
+}
+
+.status-fechada {
+    background-color: #f16a5e;
+}
+
