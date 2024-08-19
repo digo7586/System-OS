@@ -72,6 +72,25 @@ $preco15 = empty($_POST['preco15']) ? "" : $_POST['preco15'];
 $preco16 = empty($_POST['preco16']) ? "" : $_POST['preco16'];
 
 
+
+$qtdTotal1 = empty($_POST['qtdTotal1']) ? "" : $_POST['qtdTotal1'];
+$qtdTotal2 = empty($_POST['qtdTotal2']) ? "" : $_POST['qtdTotal2'];
+$qtdTotal3 = empty($_POST['qtdTotal3']) ? "" : $_POST['qtdTotal3'];
+$qtdTotal4 = empty($_POST['qtdTotal4']) ? "" : $_POST['qtdTotal4'];
+$qtdTotal5 = empty($_POST['qtdTotal5']) ? "" : $_POST['qtdTotal5'];
+$qtdTotal6 = empty($_POST['qtdTotal6']) ? "" : $_POST['qtdTotal6'];
+$qtdTotal7 = empty($_POST['qtdTotal7']) ? "" : $_POST['qtdTotal7'];
+$qtdTotal8 = empty($_POST['qtdTotal8']) ? "" : $_POST['qtdTotal8'];
+$qtdTotal9 = empty($_POST['qtdTotal9']) ? "" : $_POST['qtdTotal9'];
+$qtdTotal10 = empty($_POST['qtdTotal10']) ? "" : $_POST['qtdTotal10'];
+$qtdTotal11 = empty($_POST['qtdTotal11']) ? "" : $_POST['qtdTotal11'];
+$qtdTotal12 = empty($_POST['qtdTotal12']) ? "" : $_POST['qtdTotal12'];
+$qtdTotal13 = empty($_POST['qtdTotal13']) ? "" : $_POST['qtdTotal13'];
+$qtdTotal14 = empty($_POST['qtdTotal14']) ? "" : $_POST['qtdTotal14'];
+$qtdTotal15 = empty($_POST['qtdTotal15']) ? "" : $_POST['qtdTotal15'];
+$qtdTotal16 = empty($_POST['qtdTotal16']) ? "" : $_POST['qtdTotal16'];
+
+
 $pecas = empty($_POST['totpecas']) ? "" : $_POST['totpecas'];
 $Mobra = empty($_POST['totmDobra']) ? "" : $_POST['totmDobra'];
 $terceiros = empty($_POST['totterceiros']) ? "" : $_POST['totterceiros'];
@@ -88,12 +107,17 @@ if(isset($_POST['concluir'])){
     $sql = "INSERT INTO ordem 
             (veiculo, modelo, placa, km, qtd1, qtd2, qtd3, qtd4, qtd5, qtd6, qtd7, qtd8, qtd9, qtd10, qtd11, qtd12, qtd13, qtd14, qtd15, qtd16, 
             peca1, peca2, peca3, peca4, peca5, peca6, peca7, peca8, peca9, peca10, peca11, peca12, peca13, peca14, peca15, peca16, 
-            preco1, preco2, preco3, preco4, preco5, preco6, preco7, preco8, preco9, preco10, preco11, preco12, preco13, preco14, preco15, preco16,  
+            preco1, preco2, preco3, preco4, preco5, preco6, preco7, preco8, preco9, preco10, preco11, preco12, preco13, preco14, preco15, preco16,
+            qtdTotal1, qtdTotal2, qtdTotal3, qtdTotal4, qtdTotal5, qtdTotal6, qtdTotal7, qtdTotal8, qtdTotal9,
+            qtdTotal10, qtdTotal11, qtdTotal12, qtdTotal13, qtdTotal14, qtdTotal15, qtdTotal16,
             valorPecas, valorMobra, valorTerceiros, defeito, solucao, valorTotal, status, id_cliente, data_entrada) 
             VALUES 
             ('$veiculo', '$modelo', '$placa', '$km', '$qtd1', '$qtd2', '$qtd3', '$qtd4', '$qtd5', '$qtd6', '$qtd7', '$qtd8', '$qtd9', '$qtd10', '$qtd11', '$qtd12', '$qtd13', '$qtd14', '$qtd15', '$qtd16', 
             '$peca1', '$peca2', '$peca3', '$peca4', '$peca5', '$peca6', '$peca7', '$peca8', '$peca9', '$peca10', '$peca11', '$peca12', '$peca13', '$peca14', '$peca15', '$peca16',  
-            '$preco1', '$preco2', '$preco3', '$preco4', '$preco5', '$preco6', '$preco7', '$preco8', '$preco9', '$preco10','$preco11', '$preco12', '$preco13', '$preco14', '$preco15', '$preco16', 
+            '$preco1', '$preco2', '$preco3', '$preco4', '$preco5', '$preco6', '$preco7', '$preco8', '$preco9', '$preco10','$preco11', '$preco12', '$preco13', '$preco14', '$preco15', '$preco16',
+            '$qtdTotal1', '$qtdTotal2', '$qtdTotal3', '$qtdTotal4', '$qtdTotal5', '$qtdTotal6',
+            '$qtdTotal7', '$qtdTotal8', '$qtdTotal9', '$qtdTotal10', '$qtdTotal11', '$qtdTotal12',
+            '$qtdTotal13', '$qtdTotal14', '$qtdTotal15', '$qtdTotal16',
             '$pecas', '$Mobra', '$terceiros', '$defeito', '$solucao', '$valor', 0, '$id_cliente', '$data')";
 
     if(mysqli_query($conn,$sql)){
@@ -146,28 +170,9 @@ if(isset($_POST['concluir'])){
     <hr>
 
     <div class="form-row">
-        <div class="form-group col-1">
-            <label for="priceItens">Qtd</label>
-            <input type="text" class="form-control hide qtd-input m-2" name="qtd1" id="qtd1"  value="<?php echo $qtd1;?>" readonly>
-            <input type="text" class="form-control hide qtd-input m-2" name="qtd2" id="qtd2"  value="<?php echo $qtd2;?>" readonly>
-            <input type="text" class="form-control hide qtd-input m-2" name="qtd3" id="qtd3"  value="<?php echo $qtd3;?>" readonly>
-            <input type="text" class="form-control hide qtd-input m-2" name="qtd4" id="qtd4"  value="<?php echo $qtd4;?>" readonly>
-            <input type="text" class="form-control hide qtd-input m-2" name="qtd5" id="qtd5"  value="<?php echo $qtd5;?>" readonly>
-            <input type="text" class="form-control hide qtd-input m-2" name="qtd6" id="qtd6"  value="<?php echo $qtd6;?>" readonly>
-            <input type="text" class="form-control hide qtd-input m-2" name="qtd7" id="qtd7"  value="<?php echo $qtd7;?>" readonly>
-            <input type="text" class="form-control hide qtd-input m-2" name="qtd8" id="qtd8"  value="<?php echo $qtd8;?>" readonly>
-            <input type="text" class="form-control hide qtd-input m-2" name="qtd9" id="qtd9"  value="<?php echo $qtd9;?>" readonly>
-            <input type="text" class="form-control hide qtd-input m-2" name="qtd10" id="qtd10"  value="<?php echo $qtd10;?>" readonly>
-            <input type="text" class="form-control hide qtd-input m-2" name="qtd11" id="qtd11"  value="<?php echo $qtd11;?>" readonly>
-            <input type="text" class="form-control hide qtd-input m-2" name="qtd12" id="qtd12"  value="<?php echo $qtd12;?>" readonly>
-            <input type="text" class="form-control hide qtd-input m-2" name="qtd13" id="qtd13"  value="<?php echo $qtd13;?>" readonly>
-            <input type="text" class="form-control hide qtd-input m-2" name="qtd14" id="qtd14"  value="<?php echo $qtd14;?>" readonly>
-            <input type="text" class="form-control hide qtd-input m-2" name="qtd15" id="qtd15"  value="<?php echo $qtd15;?>" readonly>
-            <input type="text" class="form-control hide qtd-input m-2" name="qtd16" id="qtd16"  value="<?php echo $qtd16;?>" readonly>
-           
-        </div>
+        
 
-        <div class="form-group col-8">
+        <div class="form-group col-6">
             <label for="itens">Peças utilizadas</label>
             <input type="text" class="form-control hide m-2" name="peca1" id="peca-1" value="<?php echo $peca1;?>" readonly>
             <input type="text" class="form-control hide m-2" name="peca2" id="peca-2" value="<?php echo $peca2;?>" readonly>
@@ -186,13 +191,11 @@ if(isset($_POST['concluir'])){
             <input type="text" class="form-control hide m-2" name="peca15" id="peca-15" value="<?php echo $peca15;?>" readonly>
             <input type="text" class="form-control hide m-2" name="peca16" id="peca-16" value="<?php echo $peca16;?>" readonly>
             
-            <p class="tItens mt-3">Total em Peças</p>
-            <p class="tItens mt-4">Mão de Obra</p>
-            <p class="tItens mt-4">Terceiros</p>
+           
         </div>
 
-        <div class="form-group col-3">
-            <label for="priceItens">Preço</label>
+        <div class="form-group col-2">
+            <label for="priceItens">Preço (Un)</label>
             <input type="text" class="form-control hide item-input m-2" name="preco1" id="iten-1" value="<?php echo $preco1;?>" readonly>
             <input type="text" class="form-control hide item-input m-2" name="preco2" id="iten-2" value="<?php echo $preco2;?>" readonly>
             <input type="text" class="form-control hide item-input m-2" name="preco3" id="iten-3" value="<?php echo $preco3;?>" readonly>
@@ -211,10 +214,60 @@ if(isset($_POST['concluir'])){
             <input type="text" class="form-control hide item-input m-2" name="preco16" id="iten-16" value="<?php echo $preco16;?>" readonly>
            
 
+           
+        </div>
+        
+        <div class="form-group col-1">
+            <label for="priceItens">Qtd</label>
+            <input type="text" class="form-control hide qtd-input m-2" name="qtd1" id="qtd1"  value="<?php echo $qtd1;?>" readonly>
+            <input type="text" class="form-control hide qtd-input m-2" name="qtd2" id="qtd2"  value="<?php echo $qtd2;?>" readonly>
+            <input type="text" class="form-control hide qtd-input m-2" name="qtd3" id="qtd3"  value="<?php echo $qtd3;?>" readonly>
+            <input type="text" class="form-control hide qtd-input m-2" name="qtd4" id="qtd4"  value="<?php echo $qtd4;?>" readonly>
+            <input type="text" class="form-control hide qtd-input m-2" name="qtd5" id="qtd5"  value="<?php echo $qtd5;?>" readonly>
+            <input type="text" class="form-control hide qtd-input m-2" name="qtd6" id="qtd6"  value="<?php echo $qtd6;?>" readonly>
+            <input type="text" class="form-control hide qtd-input m-2" name="qtd7" id="qtd7"  value="<?php echo $qtd7;?>" readonly>
+            <input type="text" class="form-control hide qtd-input m-2" name="qtd8" id="qtd8"  value="<?php echo $qtd8;?>" readonly>
+            <input type="text" class="form-control hide qtd-input m-2" name="qtd9" id="qtd9"  value="<?php echo $qtd9;?>" readonly>
+            <input type="text" class="form-control hide qtd-input m-2" name="qtd10" id="qtd10"  value="<?php echo $qtd10;?>" readonly>
+            <input type="text" class="form-control hide qtd-input m-2" name="qtd11" id="qtd11"  value="<?php echo $qtd11;?>" readonly>
+            <input type="text" class="form-control hide qtd-input m-2" name="qtd12" id="qtd12"  value="<?php echo $qtd12;?>" readonly>
+            <input type="text" class="form-control hide qtd-input m-2" name="qtd13" id="qtd13"  value="<?php echo $qtd13;?>" readonly>
+            <input type="text" class="form-control hide qtd-input m-2" name="qtd14" id="qtd14"  value="<?php echo $qtd14;?>" readonly>
+            <input type="text" class="form-control hide qtd-input m-2" name="qtd15" id="qtd15"  value="<?php echo $qtd15;?>" readonly>
+            <input type="text" class="form-control hide qtd-input m-2" name="qtd16" id="qtd16"  value="<?php echo $qtd16;?>" readonly>
+            <br>
+            <p class="tItens mt-3">Total em peças</p>
+            <p class="tItens mt-4">Mão de Obra</p>
+            <p class="tItens mt-4">Terceiros</p>
+           
+        </div>
+
+        <div class="form-group col-1">
+            <label for="qtdItens">Total</label>
+            <input type="text" class="form-control hide qtdTotal-input m-2" name="qtdTotal1" id="qtdTotal1" value="<?php echo $qtdTotal1;?>" readonly>
+            <input type="text" class="form-control hide qtdTotal-input m-2" name="qtdTotal2" id="qtdTotal2" value="<?php echo $qtdTotal2;?>" readonly>
+            <input type="text" class="form-control hide qtdTotal-input m-2" name="qtdTotal3" id="qtdTotal3" value="<?php echo $qtdTotal3;?>" readonly>
+            <input type="text" class="form-control hide qtdTotal-input m-2" name="qtdTotal4" id="qtdTotal4" value="<?php echo $qtdTotal4;?>" readonly>
+            <input type="text" class="form-control hide qtdTotal-input m-2" name="qtdTotal5" id="qtdTotal5" value="<?php echo $qtdTotal5;?>" readonly>
+            <input type="text" class="form-control hide qtdTotal-input m-2" name="qtdTotal6" id="qtdTotal6" value="<?php echo $qtdTotal6;?>" readonly>
+            <input type="text" class="form-control hide qtdTotal-input m-2" name="qtdTotal7" id="qtdTotal7" value="<?php echo $qtdTotal7;?>" readonly>
+            <input type="text" class="form-control hide qtdTotal-input m-2" name="qtdTotal8" id="qtdTotal8" value="<?php echo $qtdTotal8;?>" readonly>
+            <input type="text" class="form-control hide qtdTotal-input m-2" name="qtdTotal9" id="qtdTotal9" value="<?php echo $qtdTotal9;?>" readonly>
+            <input type="text" class="form-control hide qtdTotal-input m-2" name="qtdTotal10" id="qtdTotal10" value="<?php echo $qtdTotal10;?>" readonly>
+            <input type="text" class="form-control hide qtdTotal-input m-2" name="qtdTotal11" id="qtdTotal11" value="<?php echo $qtdTotal11;?>" readonly>
+            <input type="text" class="form-control hide qtdTotal-input m-2" name="qtdTotal12" id="qtdTotal12" value="<?php echo $qtdTotal12;?>" readonly>
+            <input type="text" class="form-control hide qtdTotal-input m-2" name="qtdTotal13" id="qtdTotal13" value="<?php echo $qtdTotal13;?>" readonly>
+            <input type="text" class="form-control hide qtdTotal-input m-2" name="qtdTotal14" id="qtdTotal14" value="<?php echo $qtdTotal14;?>" readonly>
+            <input type="text" class="form-control hide qtdTotal-input m-2" name="qtdTotal15" id="qtdTotal15" value="<?php echo $qtdTotal15;?>" readonly>
+            <input type="text" class="form-control hide qtdTotal-input m-2" name="qtdTotal16" id="qtdTotal16" value="<?php echo $qtdTotal16;?>" readonly>
+            <br>
             <input type="text" class="form-control item-input m-2" name="totpecas" id="tItens" value="<?php echo $pecas;?>" readonly>
             <input type="text" class="form-control item-input m-2 mt-2" name="totmDobra" id="tot-mDobra" value="<?php echo $Mobra;?>" readonly>
             <input type="text" class="form-control item-input m-2 mt-2" name="totterceiros" id="tot-terceiros" value="<?php echo $terceiros;?>" readonly>
-        </div>    
+    
+           
+           
+        </div> 
     </div>
 
 

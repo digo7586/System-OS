@@ -64,7 +64,7 @@
                 <!-- <span><a class="ajax" href="/user/forgot" tabindex="5">Esqueceu sua senha?</a></span>-->
             </form>
             <div class="copyright">
-            <span>&copy; DomingosCode | 2024</span>
+            <span>&copy; DomingosTech&Code | 2024</span>
 			</div>
 
             <p>

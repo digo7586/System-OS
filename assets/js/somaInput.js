@@ -1,12 +1,13 @@
-// Seleciona os inputs de itens
-var itemInputs = document.querySelectorAll('.item-input');
+// Seleciona os inputs de valor
+var valorInputs = document.querySelectorAll('.valor-inputs');
 // Seleciona o input de tItens
 var tItensInput = document.getElementById('tItens');
 // Seleciona o input de valor total
 var valorTotalInput = document.getElementById('valor');
 
+
 // Adiciona um ouvinte de evento de entrada a cada input de item
-itemInputs.forEach(function(input) {
+valorInputs.forEach(function(input) {
     input.addEventListener('input', calcularTotalItens);
 });
 
@@ -14,15 +15,20 @@ itemInputs.forEach(function(input) {
 function calcularTotalItens() {
     var totalItens = 0;
 
-    // Itera sobre os inputs de itens e soma seus valores
+    // Itera sobre os inputs de itens multiplicados e soma seus valores
     for (var i = 1; i <= 16; i++) {
-        var input = document.getElementById('iten-' + i);
+        let precoInput = document.getElementById('iten-' + i);
+        let qtdInput = document.getElementById('qtd' + i);
+        let totalField = document.getElementById('qtdTotal' + i);
 
-        // Verifica se o valor do input é um número válido
-        if (!isNaN(input.value) && input.value.trim() !== '') {
-            totalItens += parseFloat(input.value);
-        }
+        //verifica se ambos os valores são números validos
+        if (!isNaN(precoInput.value) && precoInput.value.trim() !== '' && !isNaN(qtdInput.value) && qtdInput.value.trim() !== '') {
+
+            let subtotal = parseFloat(precoInput.value) * parseInt(qtdInput.value);
+            totalItens += subtotal;
+            totalField.value = subtotal.toFixed(2);
     }
+}
 
     // Define o valor total dos itens no input com o id 'tItens'
     tItensInput.value = totalItens.toFixed(2);
@@ -43,3 +49,36 @@ function atualizarValorTotal() {
     // Define o valor total no input com o id 'valor'
     valorTotalInput.value = valorTotal.toFixed(2);
 }
+
+
+document.addEventListener('DOMContentLoaded', function () {
+    // Seleciona todos os campos de quantidade
+    const qtdFields = document.querySelectorAll('.qtd-input');
+
+    qtdFields.forEach(qtdField => {
+        qtdField.addEventListener('input', calcularTotalItens);
+    });
+});
+
+// Função para atualizar o valor total geral
+function atualizarValorTotalGeral() {
+    // Obtém os valores dos campos mDobra, terceiros e tItens
+    var mDobraValue = parseFloat(document.getElementById('tot-mDobra').value) || 0;
+    var terceirosValue = parseFloat(document.getElementById('tot-terceiros').value) || 0;
+    var tItensValue = parseFloat(document.getElementById('tItens').value) || 0;
+
+    // Calcula o valor total somando mDobra, terceiros e tItens
+    var valorTotal = mDobraValue + terceirosValue + tItensValue;
+
+    // Define o valor total no input com o id 'valor'
+    document.getElementById('valor').value = valorTotal.toFixed(2);
+}
+
+// Adiciona ouvintes de eventos de entrada nos campos mDobra, terceiros e tItens
+document.addEventListener('DOMContentLoaded', function () {
+    document.getElementById('tot-mDobra').addEventListener('input', atualizarValorTotal);
+    document.getElementById('tot-terceiros').addEventListener('input', atualizarValorTotal);
+    document.getElementById('tItens').addEventListener('input', atualizarValorTotal);
+});
+
+

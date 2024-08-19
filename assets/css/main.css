@@ -1,3 +1,7 @@
+body {
+    background-color: #f6f3ff;
+}
+
 main{
     margin: 0;
     padding: 0;
@@ -5,6 +9,13 @@ main{
 .font-arial{
     font-family: arial;
     font-size: 16pt;
+}
+
+.formCli {
+    margin: 5rem,10rem;
+    width: 800px;
+    padding: 10px 20px;
+    border: 1px solid #25d366;
 }
 
 
@@ -43,42 +54,65 @@ main{
     width: 9.3rem;
 }
 
-@media print {
-    
-	.btCriar, h2 {
-        visibility: hidden;
-    }
-
-   form {
-    margin: 0;
-   }
-}
-
-
 footer {
     margin-bottom: 0;
-    background-color: #000;
-    color: white;
-}
-
-.footer-bg{
-    background-color: rgba(0,0,0,.9);
-    margin-top: 35px;
-}
-
-.footer-font{
-    color: rgba(255,255,255,.8);
+    background-color:#d2f9e3;
+    color: #28093b;
     font-family: "Arial";
     font-size: 14pt;
     text-align: center;
-    padding: 20px 0;
+    padding: 20px;
     margin: 0;
 }
 
-@media screen and (max-width: 1150px) {
-    .data{
-        font-size: 10pt;
+
+.card-container {
+    display: flex;
+    justify-content: space-evenly;
+    background-color: #5B2D6B;
+    text-align: center;
+    color: white;
+    padding: 10px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.ico {
+    font-size: 8rem;
+}
+
+.logoForm {
+    height: 200px;
+    width: 380px;
+}
+
+.texto {
+    
+    text-align: center;
+    margin-top: 20px;
+}
+
+.icon-text {
+    display: flex;
+    
+}
+
+.icon-text i {
+    margin-right: 15px;
+}
+
+
+.title {
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  .phone {
+      font-size: 18px;
     }
+    
+    .address {
+    font-size: 16px;
 }
 
 /* whatsapp */
@@ -97,3 +131,50 @@ footer {
     box-shadow: 1px 1px 2px #888;
     z-index:1000;
 }
+
+    @media print {
+        #whats {
+            display: none;
+        }
+        .btCriar, h3 {
+            visibility: hidden;
+        }
+       form {
+        margin: 0;
+       }
+    
+    .ico {
+        font-size: 8rem;
+    }
+    
+      .logoForm {
+        height: 200px;
+        width: 380px;
+        filter: invert(100%) grayscale(1);
+      }
+    
+      .texto {
+        
+        text-align: center;
+        margin-top: 20px;
+        color: #282828;
+      }
+    
+      .icon-text {
+        display: flex;
+        
+      }
+      
+      .icon-text i {
+        margin-right: 15px;
+      }
+    }
+    
+
+    @media screen and (max-width: 1150px) {
+        .data{
+            font-size: 10pt;
+        }
+    
+        
+    }

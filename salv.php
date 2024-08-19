@@ -24,6 +24,7 @@ $qtd = empty($_POST['quantidade']) ? 0 : $_POST['quantidade'];
 $pecas_utilizadas = empty($_POST['peca']) ? 
 "Não informado" : $_POST['peca'];
 $preco_itens = empty($_POST['preco']) ? 0 : $_POST['preco'];
+$qtdTotal = empty($_POST['qtdTotal']) ? 0 : $_POST['qtdTotal'];
 
 
 if(isset($_POST['concluir'])){
@@ -31,10 +32,12 @@ if(isset($_POST['concluir'])){
     $qtd_itens = array();
     $pecas_utilizadas = array();
     $preco_itens = array();
+    $qtdTotal = array();
     for ($i = 1; $i <= 16; $i++) {
         $qtd_itens[$i] = empty($_POST['qtd-'.$i]) ? 0 : $_POST['qtd-'.$i];
         $pecas_utilizadas[$i] = empty($_POST['peca-'.$i]) ? "" : $_POST['peca-'.$i];
         $preco_itens[$i] = empty($_POST['iten-'.$i]) ? 0 : $_POST['iten-'.$i];
+        $qtdTotal[$i] = empty($_POST['qtdTotal-'.$i]) ? 0 : $_PODT['qtdTotal'];
     }
 
     // Conexão com o banco de dados
@@ -52,9 +55,10 @@ if(isset($_POST['concluir'])){
             $qtd = $qtd_itens[$i];
             $peca = $pecas_utilizadas[$i];
             $preco = $preco_itens[$i];
+            $qtdTotal = $qtdTotal[$i];
 
             $sql_itens = "INSERT INTO itens_os (idOs, peca, quantidade,  preco) 
-                            VALUES ($idOs, '$peca', $qtd,  $preco)";
+                            VALUES ($idOs, '$peca', $qtd,  $preco, $qtdTotal)";
             mysqli_query($conn, $sql_itens);
         }
 
@@ -110,26 +114,7 @@ if(isset($_POST['concluir'])){
     <hr>
 
     <div class="form-row">
-        <div class="form-group col-1">
-            <label for="priceItens">Qtd</label>
-            <input type="text" class="form-control item-input m-2" name="qtd" id="qtd" value="<?php echo $qtd;?>" readonly style="background: none;">
-            <input type="text" class="form-control item-input m-2" id="qtd-2">
-            <input type="text" class="form-control item-input m-2" id="qtd-3">
-            <input type="text" class="form-control item-input m-2" id="qtd-4">
-            <input type="text" class="form-control item-input m-2" id="qtd-5">
-            <input type="text" class="form-control item-input m-2" id="qtd-6">
-            <input type="text" class="form-control item-input m-2" id="qtd-7">
-            <input type="text" class="form-control item-input m-2" id="qtd-8">
-            <input type="text" class="form-control item-input m-2" id="qtd-9">
-            <input type="text" class="form-control item-input m-2" id="qtd-10">
-            <input type="text" class="form-control item-input m-2" id="qtd-11">
-            <input type="text" class="form-control item-input m-2" id="qtd-12">
-            <input type="text" class="form-control item-input m-2" id="qtd-13">
-            <input type="text" class="form-control item-input m-2" id="qtd-14">
-            <input type="text" class="form-control item-input m-2" id="qtd-15">
-            <input type="text" class="form-control item-input m-2" id="qtd-16">
-           
-        </div>
+       
 
         <div class="form-group col-8">
             <label for="itens">Peças ultilizadas</label>
@@ -149,13 +134,13 @@ if(isset($_POST['concluir'])){
             <input type="text" class="form-control m-2" id="peca-14">
             <input type="text" class="form-control m-2" id="peca-15">
             <input type="text" class="form-control m-2" id="peca-16">
-            <p class="tItens mt-3">Total em Peças</p>
+            
             <p class="tItens mt-4">Mão de Obra</p>
             <p class="tItens">Terceiros</p>
         </div>
 
-        <div class="form-group col-3">
-            <label for="priceItens">Preço</label>
+        <div class="form-group col-2">
+            <label for="priceItens">Preço Unitário</label>
             <input type="text" class="form-control item-input m-2" id="iten-1">
             <input type="text" class="form-control item-input m-2" id="iten-2">
             <input type="text" class="form-control item-input m-2" id="iten-3">
@@ -172,10 +157,53 @@ if(isset($_POST['concluir'])){
             <input type="text" class="form-control item-input m-2" id="iten-14">
             <input type="text" class="form-control item-input m-2" id="iten-15">
             <input type="text" class="form-control item-input m-2" id="iten-16">
-            <input type="text" class="form-control item-input m-2" id="tItens" disabled>
+           
             <input type="text" class="form-control item-input m-2 mt-2" id="tot-mDobra">
             <input type="text" class="form-control item-input m-2 mt-1" id="tot-terceiros">
-        </div>    
+        </div> 
+        
+        <div class="form-group col-1">
+            <label for="priceItens">Qtd</label>
+            <input type="text" class="form-control item-input m-2" name="qtd" id="qtd" value="<?php echo $qtd;?>" readonly style="background: none;">
+            <input type="text" class="form-control item-input m-2" id="qtd-2">
+            <input type="text" class="form-control item-input m-2" id="qtd-3">
+            <input type="text" class="form-control item-input m-2" id="qtd-4">
+            <input type="text" class="form-control item-input m-2" id="qtd-5">
+            <input type="text" class="form-control item-input m-2" id="qtd-6">
+            <input type="text" class="form-control item-input m-2" id="qtd-7">
+            <input type="text" class="form-control item-input m-2" id="qtd-8">
+            <input type="text" class="form-control item-input m-2" id="qtd-9">
+            <input type="text" class="form-control item-input m-2" id="qtd-10">
+            <input type="text" class="form-control item-input m-2" id="qtd-11">
+            <input type="text" class="form-control item-input m-2" id="qtd-12">
+            <input type="text" class="form-control item-input m-2" id="qtd-13">
+            <input type="text" class="form-control item-input m-2" id="qtd-14">
+            <input type="text" class="form-control item-input m-2" id="qtd-15">
+            <input type="text" class="form-control item-input m-2" id="qtd-16">
+            <p class="tItens mt-3">Total em Peças</p>
+           
+        </div>
+        <div class="form-group col-1">
+            <label for="priceItens">Total</label>
+            <input type="text" class="form-control item-input m-2" id="qtdTotal1">
+            <input type="text" class="form-control item-input m-2" id="qtdTotal2">
+            <input type="text" class="form-control item-input m-2" id="qtdTotal3">
+            <input type="text" class="form-control item-input m-2" id="qtdTotal4">
+            <input type="text" class="form-control item-input m-2" id="qtdTotal5">
+            <input type="text" class="form-control item-input m-2" id="qtdTotal6">
+            <input type="text" class="form-control item-input m-2" id="qtdTotal7">
+            <input type="text" class="form-control item-input m-2" id="qtdTotal8">
+            <input type="text" class="form-control item-input m-2" id="qtdTotal9">
+            <input type="text" class="form-control item-input m-2" id="qtdTotal10">
+            <input type="text" class="form-control item-input m-2" id="qtdTotal11">
+            <input type="text" class="form-control item-input m-2" id="qtdTota12">
+            <input type="text" class="form-control item-input m-2" id="qtdTotal13">
+            <input type="text" class="form-control item-input m-2" id="qtdTotal14">
+            <input type="text" class="form-control item-input m-2" id="qtdTotal15">
+            <input type="text" class="form-control item-input m-2" id="qtdTotal16">
+            <input type="text" class="form-control item-input m-2" id="tItens" disabled>
+
+        </div>
     </div>
 
 

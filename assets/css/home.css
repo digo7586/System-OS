@@ -1,0 +1,104 @@
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #5B2D6B;
+        }
+        .card-container {
+            background:rgb(118, 59, 138);
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 90%;
+            max-width: 600px;
+            color: #fff;
+        }
+        .card-container img.logoForm {
+            width: 200px;
+            margin-top: 20px;
+        }
+        .texto {
+            text-align: center;
+            padding: 20px;
+        }
+        .title {
+            font-size: 24px;
+            margin: 10px 0;
+        }
+        .icon-text .icon-texts{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 10px 0;
+        }
+        .icon-text i {
+            margin-right: 10px;
+            color: rgb(19, 184, 19);
+            font-size: 22px;
+        }
+        .icon-texts i {
+            margin-right: 10px;
+            color: rgb(218, 230, 218);
+            font-size: 22px;
+            
+        }
+       
+        .phone, .address {
+            font-size: 16px;
+            margin: 0;
+        }
+        .address {
+            margin-top: 5px;
+        }
+
+        
+.circle {
+    position: fixed;
+    top: -50vmin;
+    left: -50vmin;
+    width: 100vmin;
+    height: 100vmin;
+    border-radius: 47% 53% 61% 39% / 45% 51% 49% 55%;
+    background: #310553;
+  }
+  
+  .circle1 {
+    position: fixed;
+    top: -20vmin;
+    left: -30vmin;
+    width: 50vmin;
+    height: 50vmin;
+    border-radius: 47% 53% 61% 39% / 45% 51% 49% 55%;
+    background: #9759e9;
+  }
+  
+  .circle::after {
+    content: "";
+    position: inherit;
+    right: -50vmin;
+    bottom: -55vmin;
+    width: inherit;
+    height: inherit;
+    border-radius: inherit;
+    background: #310553;
+  }
+  
+  .circle1::after {
+    content: "";
+    position: inherit;
+    right: -20vmin;
+    bottom: -30vmin;
+    width: inherit;
+    height: inherit;
+    border-radius: inherit;
+    background: #9759e9;
+  }
+  
+  

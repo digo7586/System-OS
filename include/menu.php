@@ -1,5 +1,3 @@
-
-
 <body>
     <main>
         <!-- MENU MOBILE -->
@@ -12,18 +10,11 @@
             <nav class="desktop">
                 <ul class="ul-desktop">
                     <div id="menu-mobile">
-
-                       
-                            <li class="li-desktop">
-                                <a href="dash.php" class="a-desktop">Dashboard</a>
-                            </li>
-                       
-
                         <li class="li-desktop">
-                            <a href="cad_user.php" class="a-desktop">Cadastrar Cliente</a>
+                            <a href="home.php" class="a-desktop">Home</a>
                         </li>
                         <li class="li-desktop">
-                            <a href="busca_user.php" class="a-desktop">Buscar Cliente</a>
+                            <a href="dash.php" class="a-desktop">Dashboard</a>
                         </li>
                         <li class="li-desktop">
                             <a href="nova_os.php" class="a-desktop">Nova OS</a>
@@ -32,7 +23,10 @@
                             <a href="busca_os.php" class="a-desktop">Buscar OS</a>
                         </li>
                         <li class="li-desktop">
-                            <a class="nav-link text-dark text-uppercase"></a>
+                            <a href="cad_user.php" class="a-desktop">Cadastrar Cliente</a>
+                        </li>
+                        <li class="li-desktop">
+                            <a href="busca_user.php" class="a-desktop">Buscar Cliente</a>
                         </li>
                         <li class="li-desktop mb-3">
                             <a class="btn btn-danger" href="index.php?logout=true">Sair</a>
@@ -43,4 +37,3 @@
             <!-- FIM MENU DESKTOP -->
         </header>
         <hr>
-       

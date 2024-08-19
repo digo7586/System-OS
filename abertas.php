@@ -5,8 +5,8 @@ require_once "include/menu.php";
 
 
 // recuperar O.S
-$result = $link->query("SELECT * FROM ordem where status = '0' ORDER BY id_os desc");
-$abertas = mysqli_num_rows($result);
+$resultAbertas = $link->query("SELECT * FROM ordem where status = '0' ORDER BY id_os desc");
+$abertas = mysqli_num_rows($resultAbertas);
 
 ?>
 
@@ -20,9 +20,9 @@ $abertas = mysqli_num_rows($result);
     })
 </script>
 
-<div class="background-container">
+<!-- <div class="background-container">
     <img src="image/veloci7.jpg" class="background-image">
-</div>
+</div> -->
 <div class="container-fluid p-3">
 
 <?php include_once('painel.php') ?>
@@ -31,7 +31,7 @@ $abertas = mysqli_num_rows($result);
 
 
     <!-- inicio da listagem das o.s -->
-    <table class="table table-dark table-hover table-bordered mt-2">
+    <table class="table table-hover table-bordered mt-2">
         <h5>O.S ABERTAS: <b> <?= $abertas ?></b></h5>
         <thead>
             <tr>
@@ -47,23 +47,23 @@ $abertas = mysqli_num_rows($result);
         </thead>
         <tbody>
             <?php
-            while ($OS = mysqli_fetch_object($result)) {
+            while ($OSAbertas = mysqli_fetch_object($resultAbertas)) {
                 // Recupere o cliente associado a esta ordem de serviço
-                $cliente_query = $link->query("SELECT * FROM clientes WHERE id = '{$OS->id_cliente}'");
+                $cliente_query = $link->query("SELECT * FROM clientes WHERE id = '{$OSAbertas->id_cliente}'");
                 $cliente = mysqli_fetch_object($cliente_query);
                 // Adicione a classe 'status-aberta' se o status for igual a '0' (aberta), caso contrário, não adicione nenhuma classe
 
-                $status_class = ($OS->status == '0') ? 'status-aberta' : 'status-fechada';
+                $status_class = ($OSAbertas->status == '0') ? 'status-aberta' : 'status-fechada';
             ?>
-                <tr class="<?= $status_class ?>" onclick="window.open('busca_os.php?id=<?= $OS->id_os ?>', '_blank')">
-                    <td><?= $OS->id_os; ?></td>
+                <tr class="<?= $status_class ?>" onclick="window.open('busca_os.php?id=<?= $OSAbertas->id_os ?>', '_blank')">
+                    <td><?= $OSAbertas->id_os; ?></td>
                     <td><?= $cliente->nome; ?></td>
-                    <td><?= $OS->modelo; ?></td>
-                    <td><?= $OS->placa; ?></td>
-                    <td><?= date("d/m/Y", strtotime($OS->data_entrada)) ?></td>
-                    <!-- <td><?= $OS->valorPecas; ?></td>
-                    <td><?= $OS->valorMobra; ?></td>
-                    <td><?= $OS->valorTotal; ?></td> -->
+                    <td><?= $OSAbertas->modelo; ?></td>
+                    <td><?= $OSAbertas->placa; ?></td>
+                    <td><?= date("d/m/Y", strtotime($OSAbertas->data_entrada)) ?></td>
+                    <!-- <td><?= $OSAbertas->valorPecas; ?></td>
+                    <td><?= $OSAbertas->valorMobra; ?></td>
+                    <td><?= $OSAbertas->valorTotal; ?></td> -->
                 </tr>
             <?php } ?>
         </tbody>

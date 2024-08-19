@@ -1,6 +1,7 @@
 <?php
 require_once "include/cabecalho.php";
 require_once "include/menu.php";
+
    if(isset($_GET['status']) && $_GET['status']  == "sucesso"){
         echo "<div class='alert alert-success text-center'>";
         echo "<h2>Cadastrado com Sucesso</h2>";
@@ -41,9 +42,16 @@ require_once "include/menu.php";
         }
 
     }
+
+
+	
 ?>
 
-<form action="<?php $_SERVER['PHP_SELF'] ?>" method="post" class="mt-5 col-md-8 col-12 mx-auto border py-4 bg-light font-arial logo rounded">
+
+<div class="container">
+
+
+<form action="<?php $_SERVER['PHP_SELF'] ?>" method="post" class="formCli mt-5 col-md-8 col-12 mx-auto border py-4 bg-light font-arial">
 	<h2 class="py-2 mx-auto bg-light text-center">Cadastro de Cliente</h2>
 	<div class="form-row">
 		<div class="form-group col-6">
@@ -104,6 +112,26 @@ require_once "include/menu.php";
 		<input type="submit" class="btn btn-lg btn-primary" name="salvar" value="Cadastrar">
 	</div>
 </form>
-<?php require_once "include/footer.php";?>
+</div>
+
+
+<?php require_once "include/footer.php"?>
+
+<script>
+    function formatPhoneNumber(phoneNumber) {
+        const cleaned = ('' + phoneNumber).replace(/\D/g, '');
+        const match = cleaned.match(/^(\d{2})(\d{5})(\d{4})$/);
+        if (match) {
+            return `(${match[1]}) ${match[2]}-${match[3]}`;
+        }
+        return phoneNumber;
+    }
+
+    const phoneInput = document.getElementById('telefone');
+
+    phoneInput.addEventListener('input', function () {
+        this.value = formatPhoneNumber(this.value);
+    });
+</script>
 
 

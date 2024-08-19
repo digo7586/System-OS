@@ -7,11 +7,30 @@ $result = todosClientes($conn);
 
 <!-- Criar nova ordem de serviço -->
 
-<form action="salvar_os.php" method="POST" class="border mx-auto col-md-8 col-12 bg-light font-arial my-4 rounded">
-    <div class="hero">
-        <img src="assets/img/autome.png" style="width:8.7rem" alt="logo">
+<form action="salvar_os.php" method="POST" class="border mx-auto col-md-8 col-12 font-arial my-4 rounded">
+
+    <div class="card-container">
+        <div>
+
+            <img src="assets/img/autome.png" class="logoForm" alt="logo">
+        </div>
+
+
+        <div class="texto">
+            <h2 class="title">AUTOMECÂNICA DO GORDO</h2>
+            <span class="icon-text">
+                <i class="fa-brands fa-whatsapp"></i>
+                <p class="phone">(19) 98348-2130</p>
+            </span>
+            <span class="icon-text">
+                <i class="fa-solid fa-location-dot"></i>
+                <p class="address">Rua Pedro Gonçalves de Lima, 735</p>
+            </span>
+            <p class="address">Residencial Cidade Nova - Iracemápolis</p>
+        </div>
+
     </div>
-    <h2 class="pt-5 pb-3 mx-auto bg-light text-center mb-4">Nova Ordem de Serviço</h2>
+    <h3 class="pt-5 pb-3 mx-auto text-center mb-4">Nova Ordem de Serviço</h3>
     <div class="form-group">
         <label for="cliente">Cliente</label>
         <select class="custom-select form-control" name="cliente">
@@ -57,25 +76,7 @@ $result = todosClientes($conn);
     <hr>
 
     <div class="form-row">
-    <div class="form-group col-1">
-            <label for="qtdItens">Qtd</label>
-            <input type="text" class="form-control qtd-input m-2" name="qtd1" id="qtd1">
-            <input type="text" class="form-control qtd-input m-2" name="qtd2" id="qtd2">
-            <input type="text" class="form-control qtd-input m-2" name="qtd3" id="qtd3">
-            <input type="text" class="form-control qtd-input m-2" name="qtd4" id="qtd4">
-            <input type="text" class="form-control qtd-input m-2" name="qtd5" id="qtd5">
-            <input type="text" class="form-control qtd-input m-2" name="qtd6" id="qtd6">
-            <input type="text" class="form-control qtd-input m-2" name="qtd7" id="qtd7">
-            <input type="text" class="form-control qtd-input m-2" name="qtd8" id="qtd8">
-            <input type="text" class="form-control qtd-input m-2" name="qtd9" id="qtd9">
-            <input type="text" class="form-control qtd-input m-2" name="qtd10" id="qtd10">
-            <input type="text" class="form-control qtd-input m-2" name="qtd11" id="qtd11">
-            <input type="text" class="form-control qtd-input m-2" name="qtd12" id="qtd12">
-            <input type="text" class="form-control qtd-input m-2" name="qtd13" id="qtd13">
-            <input type="text" class="form-control qtd-input m-2" name="qtd14" id="qtd14">
-            <input type="text" class="form-control qtd-input m-2" name="qtd15" id="qtd15">
-            <input type="text" class="form-control qtd-input m-2" name="qtd16" id="qtd16">
-        </div>
+       
 
         <div class="form-group col-8">
             <label for="itens">Peças ultilizadas</label>
@@ -95,14 +96,14 @@ $result = todosClientes($conn);
             <input type="text" class="form-control m-2" name="peca14" id="peca14">
             <input type="text" class="form-control m-2" name="peca15" id="peca15">
             <input type="text" class="form-control m-2" name="peca16" id="peca16">
+
            
-            <p class="tItens">Total em Peças</p>
             <p class="tItens">Mão de Obra</p>
             <p class="tItens">Terceiros</p>
         </div>
 
-        <div class="form-group col-3">
-            <label for="priceItens">Preço</label>
+        <div class="form-group col-2">
+            <label for="priceItens">Preço unitário</label>
             <input type="text" class="form-control item-input m-2" name="preco1" id="iten-1">
             <input type="text" class="form-control item-input m-2" name="preco2" id="iten-2">
             <input type="text" class="form-control item-input m-2" name="preco3" id="iten-3">
@@ -119,12 +120,53 @@ $result = todosClientes($conn);
             <input type="text" class="form-control item-input m-2" name="preco14" id="iten-14">
             <input type="text" class="form-control item-input m-2" name="preco15" id="iten-15">
             <input type="text" class="form-control item-input m-2" name="preco16" id="iten-16">
-           
 
-            <input type="text" class="form-control item-input m-2" name="totpecas" id="tItens" readonly>
+
+           
             <input type="text" class="form-control item-input m-2 mt-4" name="totmDobra" id="tot-mDobra">
             <input type="text" class="form-control item-input m-2 mt-3" name="totterceiros" id="tot-terceiros">
-        </div>    
+        </div>
+
+        <div class="form-group col-1">
+            <label for="qtdItens">Qtd</label>
+            <input type="text" class="form-control qtd-input m-2" name="qtd1" id="qtd1">
+            <input type="text" class="form-control qtd-input m-2" name="qtd2" id="qtd2">
+            <input type="text" class="form-control qtd-input m-2" name="qtd3" id="qtd3">
+            <input type="text" class="form-control qtd-input m-2" name="qtd4" id="qtd4">
+            <input type="text" class="form-control qtd-input m-2" name="qtd5" id="qtd5">
+            <input type="text" class="form-control qtd-input m-2" name="qtd6" id="qtd6">
+            <input type="text" class="form-control qtd-input m-2" name="qtd7" id="qtd7">
+            <input type="text" class="form-control qtd-input m-2" name="qtd8" id="qtd8">
+            <input type="text" class="form-control qtd-input m-2" name="qtd9" id="qtd9">
+            <input type="text" class="form-control qtd-input m-2" name="qtd10" id="qtd10">
+            <input type="text" class="form-control qtd-input m-2" name="qtd11" id="qtd11">
+            <input type="text" class="form-control qtd-input m-2" name="qtd12" id="qtd12">
+            <input type="text" class="form-control qtd-input m-2" name="qtd13" id="qtd13">
+            <input type="text" class="form-control qtd-input m-2" name="qtd14" id="qtd14">
+            <input type="text" class="form-control qtd-input m-2" name="qtd15" id="qtd15">
+            <input type="text" class="form-control qtd-input m-2" name="qtd16" id="qtd16">
+            <p class="tItens">Total</p>
+        </div>
+        <div class="form-group col-1">
+            <label for="qtdItens">valor</label>
+            <input type="text" class="form-control valor-inputs m-2" name="qtdTotal1" id="qtdTotal1" readonly>
+            <input type="text" class="form-control valor-inputs m-2" name="qtdTotal2" id="qtdTotal2" readonly>
+            <input type="text" class="form-control valor-inputs m-2" name="qtdTotal3" id="qtdTotal3" readonly>
+            <input type="text" class="form-control valor-inputs m-2" name="qtdTotal4" id="qtdTotal4" readonly>
+            <input type="text" class="form-control valor-inputs m-2" name="qtdTotal5" id="qtdTotal5" readonly>
+            <input type="text" class="form-control valor-inputs m-2" name="qtdTotal6" id="qtdTotal6" readonly>
+            <input type="text" class="form-control valor-inputs m-2" name="qtdTotal7" id="qtdTotal7" readonly>
+            <input type="text" class="form-control valor-inputs m-2" name="qtdTotal8" id="qtdTotal8" readonly>
+            <input type="text" class="form-control valor-inputs m-2" name="qtdTotal9" id="qtdTotal9" readonly>
+            <input type="text" class="form-control valor-inputs m-2" name="qtdTotal10" id="qtdTotal10" readonly>
+            <input type="text" class="form-control valor-inputs m-2" name="qtdTotal11" id="qtdTotal11" readonly>
+            <input type="text" class="form-control valor-inputs m-2" name="qtdTotal12" id="qtdTotal12" readonly>
+            <input type="text" class="form-control valor-inputs m-2" name="qtdTotal13" id="qtdTotal13" readonly>
+            <input type="text" class="form-control valor-inputs m-2" name="qtdTotal14" id="qtdTotal14" readonly>
+            <input type="text" class="form-control valor-inputs m-2" name="qtdTotal15" id="qtdTotal15" readonly>
+            <input type="text" class="form-control valor-inputs m-2" name="qtdTotal16" id="qtdTotal16" readonly>
+            <input type="text" class="form-control valor-inputs m-2" name="totpecas" id="tItens" readonly>
+        </div>
     </div>
 
 
@@ -148,5 +190,7 @@ $result = todosClientes($conn);
     </div>
 </form>
 
-<script src="assets/js//somaInput.js"></script>
+<script src="assets/js/somaInput.js"></script>
+<script src="assets/js/mult.js"></script>
+
 <?php require_once "include/footer.php"; ?>

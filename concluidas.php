@@ -4,8 +4,8 @@ require_once "include/cabecalho.php";
 require_once "include/menu.php";
 
 // recuperar O.S na tabela
-$result = $link->query("SELECT * FROM ordem where status = '1' ORDER BY id_os desc");
-$dataOs = mysqli_num_rows($result);
+$resultConcluidas = $link->query("SELECT * FROM ordem where status = '1' ORDER BY id_os desc");
+$dataOsConcluidas = mysqli_num_rows($resultConcluidas);
 
 ?>
 
@@ -19,18 +19,18 @@ $dataOs = mysqli_num_rows($result);
     })
 </script>
 
-<div class="background-container">
+<!-- <div class="background-container">
     <img src="image/veloci7.jpg" class="background-image">
-</div>
+</div> -->
 <div class="container-fluid p-3">
 
-   <?php include_once('painel.php') ?>
+    <?php include_once('painel.php') ?>
 
 
 
     <!-- inicio da listagem das o.s -->
-    <table class="table table-dark table-hover table-bordered mt-2">
-        <h5>O.S Concluídas: <b> <?= $dataOs ?></b></h5>
+    <table class="table table-hover table-bordered mt-2">
+        <h5>O.S Concluídas: <b> <?= $dataOsConcluidas ?></b></h5>
         <thead>
             <tr>
                 <th scope="col">N°</th>
@@ -45,23 +45,24 @@ $dataOs = mysqli_num_rows($result);
         </thead>
         <tbody>
             <?php
-            while ($OS = mysqli_fetch_object($result)) {
-                // Recupere o cliente associado a esta ordem de serviço
-                $cliente_query = $link->query("SELECT * FROM clientes WHERE id = '{$OS->id_cliente}'");
-                $cliente = mysqli_fetch_object($cliente_query);
-                // Adicione a classe 'status-aberta' se o status for igual a '0' (aberta), caso contrário, não adicione nenhuma classe
+            while ($OSConcluidas = mysqli_fetch_object($resultConcluidas)) {
 
-                $status_class = ($OS->status == '0') ? 'status-aberta' : 'status-fechada';
+                // Recupere o cliente associado a esta ordem de serviço
+                $cliente_query = $link->query("SELECT * FROM clientes WHERE id = '{$OSConcluidas->id_cliente}'");
+                $cliente = mysqli_fetch_object($cliente_query);
+
+                // Adicione a classe 'status-fechada' se o status for igual a '1' (fechada), caso contrário, não adicione nenhuma classe
+                $status_class = ($OSConcluidas->status == '1') ? 'status-fechada' : 'status-aberta';
             ?>
-                <tr class="<?= $status_class ?>" onclick="window.open('busca_os.php?id=<?= $OS->id_os ?>', '_blank')">
-                    <td><?= $OS->id_os; ?></td>
+                <tr class="<?= $status_class ?>" onclick="window.open('busca_os.php?id=<?= $OSConcluidas->id_os ?>', '_blank')">
+                    <td><?= $OSConcluidas->id_os; ?></td>
                     <td><?= $cliente->nome; ?></td>
-                    <td><?= $OS->modelo; ?></td>
-                    <td><?= $OS->placa; ?></td>
-                    <td><?= date("d/m/Y", strtotime($OS->data_entrada)) ?></td>
-                    <!-- <td><?= $OS->valorPecas; ?></td>
-                    <td><?= $OS->valorMobra; ?></td>
-                    <td><?= $OS->valorTotal; ?></td> -->
+                    <td><?= $OSConcluidas->modelo; ?></td>
+                    <td><?= $OSConcluidas->placa; ?></td>
+                    <td><?= date("d/m/Y", strtotime($OSConcluidas->data_entrada)) ?></td>
+                    <!-- <td><?= $OSConcluidas->valorPecas; ?></td>
+                    <td><?= $OSConcluidas->valorMobra; ?></td>
+                    <td><?= $OSConcluidas->valorTotal; ?></td> -->
                 </tr>
             <?php } ?>
         </tbody>
@@ -80,7 +81,7 @@ $dataOs = mysqli_num_rows($result);
  
 </footer> -->
 </main>
-<?php require_once "include/footer.php";?>
+<?php require_once "include/footer.php"; ?>
 
 
 </body>

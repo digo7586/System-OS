@@ -5,8 +5,8 @@ require_once "include/menu.php";
 
 
 // recuperar O.S na tabela
-$result = $link->query("SELECT * FROM clientes ORDER BY id desc");
-$dataOs = mysqli_num_rows($result);
+$resultCliente = $link->query("SELECT * FROM clientes ORDER BY id desc");
+$dataOsCliente = mysqli_num_rows($resultCliente);
 
 ?>
 
@@ -30,8 +30,8 @@ $dataOs = mysqli_num_rows($result);
 
 
     <!-- inicio da listagem das o.s -->
-    <table class="table table-dark table-hover table-bordered mt-2">
-        <h5>O.S Clientes: <b> <?= $dataOs ?></b></h5>
+    <table class="table table-hover table-bordered mt-2">
+        <h5>O.S Clientes: <b> <?= $dataOsCliente ?></b></h5>
         <thead>
             <tr>
                 <th scope="col">N°</th>
@@ -43,14 +43,10 @@ $dataOs = mysqli_num_rows($result);
         <tbody>
 
         <?php
-            while ($cliente = mysqli_fetch_object($result)) {
-                // Recuperar os cliente
-                $cliente_query = $link->query("SELECT * FROM clientes WHERE id = '{$cliente->id}'");
-                $cliente = mysqli_fetch_object($cliente_query);
-              
+            while ($cliente = mysqli_fetch_object($resultCliente)) {              
             ?>
                 
-                    <td><?= $cliente->id; ?></td>
+                    <td><?=  $cliente->id; ?></td>
                     <td><?= $cliente->nome; ?></td>
                     <td><?= $cliente->telefone; ?></td>
                     <td><?= $cliente->endereco; ?></td>
@@ -73,6 +69,7 @@ $dataOs = mysqli_num_rows($result);
  
 </footer> -->
 </main>
+<?php require_once "include/footer.php"?>
 
 </body>
 

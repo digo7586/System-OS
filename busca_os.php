@@ -87,6 +87,23 @@ if(isset($_POST['alterar'])){
     $preco5 = empty($_POST['preco15']) ? "" : $_POST['preco15'];
     $preco6 = empty($_POST['preco16']) ? "" : $_POST['preco16'];
 
+    $qtdTotal1 = empty($_POST['qtdTotal1']) ? "" : $_POST['qtdTotal1'];
+    $qtdTotal2 = empty($_POST['qtdTotal2']) ? "" : $_POST['qtdTotal2'];
+    $qtdTotal3 = empty($_POST['qtdTotal3']) ? "" : $_POST['qtdTotal3'];
+    $qtdTotal4 = empty($_POST['qtdTotal4']) ? "" : $_POST['qtdTotal4'];
+    $qtdTotal5 = empty($_POST['qtdTotal5']) ? "" : $_POST['qtdTotal5'];
+    $qtdTotal6 = empty($_POST['qtdTotal6']) ? "" : $_POST['qtdTotal6'];
+    $qtdTotal7 = empty($_POST['qtdTotal7']) ? "" : $_POST['qtdTotal7'];
+    $qtdTotal8 = empty($_POST['qtdTotal8']) ? "" : $_POST['qtdTotal8'];
+    $qtdTotal9 = empty($_POST['qtdTotal9']) ? "" : $_POST['qtdTotal9'];
+    $qtdTotal10 = empty($_POST['qtdTotal10']) ? "" : $_POST['qtdTotal10'];
+    $qtdTotal11 = empty($_POST['qtdTotal11']) ? "" : $_POST['qtdTotal11'];
+    $qtdTotal12 = empty($_POST['qtdTotal12']) ? "" : $_POST['qtdTotal12'];
+    $qtdTotal13 = empty($_POST['qtdTotal13']) ? "" : $_POST['qtdTotal13'];
+    $qtdTotal14 = empty($_POST['qtdTotal14']) ? "" : $_POST['qtdTotal14'];
+    $qtdTotal15 = empty($_POST['qtdTotal15']) ? "" : $_POST['qtdTotal15'];
+    $qtdTotal16 = empty($_POST['qtdTotal16']) ? "" : $_POST['qtdTotal16'];
+
     $pecas = empty($_POST['totpecas']) ? "" : $_POST['totpecas'];
     $Mobra = empty($_POST['totmDobra']) ? "" : $_POST['totmDobra'];
     $terceiros = empty($_POST['totterceiros']) ? "" : $_POST['totterceiros'];
@@ -147,6 +164,22 @@ if(isset($_POST['alterar'])){
     preco14='$preco14', 
     preco15='$preco15', 
     preco16='$preco16',
+    qtdTotal1='$qtdTotal1',
+    qtdTotal2='$qtdTotal2',
+    qtdTotal3='$qtdTotal3',
+    qtdTotal4='$qtdTotal4',
+    qtdTotal5='$qtdTotal5',
+    qtdTotal6='$qtdTotal6',
+    qtdTotal7='$qtdTotal7',
+    qtdTotal8='$qtdTotal8',
+    qtdTotal9='$qtdTotal9',
+    qtdTotal10='$qtdTotal10',
+    qtdTotal11='$qtdTotal11',
+    qtdTotal12='$qtdTotal12',
+    qtdTotal13='$qtdTotal13',
+    qtdTotal14='$qtdTotal14',
+    qtdTotal15='$qtdTotal15',
+    qtdTotal16='$qtdTotal16',
     valorPecas='$pecas', 
     valorMobra='$Mobra',
     valorTerceiros='$terceiros',
@@ -217,10 +250,28 @@ function exibirCampo($valor) {
 <!-- //FORM PARA EXIBIÇÃO DOS DADOS -->
 
     <form action="<?php $_SERVER['PHP_SELF'] ?>" method="POST" class="border mx-auto col-md-8 col-12 bg-light font-arial rounded my-4">
-    <div class="hero">
-        <img src="assets/img/autome.png" style="width:8.7rem" alt="logo">
+    <div class="card-container">
+        <div>
+
+            <img src="assets/img/autome.png" class="logoForm" alt="logo">
+        </div>
+
+
+        <div class="texto">
+            <h2 class="title">AUTOMECÂNICA DO GORDO</h2>
+            <span class="icon-text">
+                <i class="fa-brands fa-whatsapp"></i>
+                <p class="phone">(19) 98348-2130</p>
+            </span>
+            <span class="icon-text">
+                <i class="fa-solid fa-location-dot"></i>
+                <p class="address">Rua Pedro Gonçalves de Lima, 735</p>
+            </span>
+            <p class="address">Residencial Cidade Nova - Iracemápolis</p>
+        </div>
+
     </div>
-        <h2 class="pt-5 pb-3 mx-auto bg-light text-center mb-4">Buscar Ordem de Serviço</h2>
+        <h3 class="pt-5 pb-3 mx-auto bg-light text-center mb-4">Buscar Ordem de Serviço</h3>
         <div class="form-group">
             <label for="num_os">Nº Ordem de Serviço</label><br>
             <input type="text" name="num_os" id="num_os" class="form-control col-5" value="<?php echo $num_os ?>" readonly>
@@ -257,28 +308,8 @@ function exibirCampo($valor) {
         <hr>
 
         <div class="form-row">
-        <div class="form-group col-1">
-            <label for="priceItens">Qtd</label>
-            <input type="text" class="form-control hide qtd-input m-2" name="qtd1" id="qtd1"  value="<?php echo exibirCampo($dados['qtd1']);?>" readonly>
-            <input type="text" class="form-control hide qtd-input m-2" name="qtd2" id="qtd2"  value="<?php echo exibirCampo($dados['qtd2']);?>" readonly>
-            <input type="text" class="form-control hide qtd-input m-2" name="qtd3" id="qtd3"  value="<?php echo exibirCampo($dados['qtd3']);?>" readonly>
-            <input type="text" class="form-control hide qtd-input m-2" name="qtd4" id="qtd4"  value="<?php echo exibirCampo($dados['qtd4']);?>" readonly>
-            <input type="text" class="form-control hide qtd-input m-2" name="qtd5" id="qtd5"  value="<?php echo exibirCampo($dados['qtd5']);?>" readonly>
-            <input type="text" class="form-control hide qtd-input m-2" name="qtd6" id="qtd6"  value="<?php echo exibirCampo($dados['qtd6']);?>" readonly>
-            <input type="text" class="form-control hide qtd-input m-2" name="qtd7" id="qtd7"  value="<?php echo exibirCampo($dados['qtd7']);?>" readonly>
-            <input type="text" class="form-control hide qtd-input m-2" name="qtd8" id="qtd8"  value="<?php echo exibirCampo($dados['qtd8']);?>" readonly>
-            <input type="text" class="form-control hide qtd-input m-2" name="qtd9" id="qtd9"  value="<?php echo exibirCampo($dados['qtd9']);?>" readonly>
-            <input type="text" class="form-control hide qtd-input m-2" name="qtd10" id="qtd10"  value="<?php echo exibirCampo($dados['qtd10']);?>" readonly>
-            <input type="text" class="form-control hide qtd-input m-2" name="qtd11" id="qtd11"  value="<?php echo exibirCampo($dados['qtd11']);?>" readonly>
-            <input type="text" class="form-control hide qtd-input m-2" name="qtd12" id="qtd12"  value="<?php echo exibirCampo($dados['qtd12']);?>" readonly>
-            <input type="text" class="form-control hide qtd-input m-2" name="qtd13" id="qtd13"  value="<?php echo exibirCampo($dados['qtd13']);?>" readonly>
-            <input type="text" class="form-control hide qtd-input m-2" name="qtd14" id="qtd14"  value="<?php echo exibirCampo($dados['qtd14']);?>" readonly>
-            <input type="text" class="form-control hide qtd-input m-2" name="qtd15" id="qtd15"  value="<?php echo exibirCampo($dados['qtd15']);?>" readonly>
-            <input type="text" class="form-control hide qtd-input m-2" name="qtd16" id="qtd16"  value="<?php echo exibirCampo($dados['qtd16']);?>" readonly>
-           
-        </div>
-
-        <div class="form-group col-8">
+       
+        <div class="form-group col-4">
             <label for="itens">Peças utilizadas</label>
             <input type="text" class="form-control hide m-2" name="peca1" id="peca-1" value="<?php echo $dados['peca1'];?>" readonly>
             <input type="text" class="form-control hide m-2" name="peca2" id="peca-2" value="<?php echo $dados['peca2'];?>" readonly>
@@ -297,34 +328,89 @@ function exibirCampo($valor) {
             <input type="text" class="form-control hide m-2" name="peca15" id="peca-15" value="<?php echo $dados['peca15'];?>" readonly>
             <input type="text" class="form-control hide m-2" name="peca16" id="peca-16" value="<?php echo $dados['peca16'];?>" readonly>
            
-            <p class="tItens">Total em Peças</p>
+            
+        </div>
+
+        <div class="form-group col-1">
+            <label for="priceItens">Qtd</label>
+            <input type="text" class="form-control hide qtd-input m-2" name="qtd1" id="qtd1" value="<?php echo exibirCampo($dados['qtd1']);?>" readonly>
+            <input type="text" class="form-control hide qtd-input m-2" name="qtd2" id="qtd2" value="<?php echo exibirCampo($dados['qtd2']);?>" readonly>
+            <input type="text" class="form-control hide qtd-input m-2" name="qtd3" id="qtd3" value="<?php echo exibirCampo($dados['qtd3']);?>" readonly>
+            <input type="text" class="form-control hide qtd-input m-2" name="qtd4" id="qtd4" value="<?php echo exibirCampo($dados['qtd4']);?>" readonly>
+            <input type="text" class="form-control hide qtd-input m-2" name="qtd5" id="qtd5" value="<?php echo exibirCampo($dados['qtd5']);?>" readonly>
+            <input type="text" class="form-control hide qtd-input m-2" name="qtd6" id="qtd6" value="<?php echo exibirCampo($dados['qtd6']);?>" readonly>
+            <input type="text" class="form-control hide qtd-input m-2" name="qtd7" id="qtd7" value="<?php echo exibirCampo($dados['qtd7']);?>" readonly>
+            <input type="text" class="form-control hide qtd-input m-2" name="qtd8" id="qtd8" value="<?php echo exibirCampo($dados['qtd8']);?>" readonly>
+            <input type="text" class="form-control hide qtd-input m-2" name="qtd9" id="qtd9" value="<?php echo exibirCampo($dados['qtd9']);?>" readonly>
+            <input type="text" class="form-control hide qtd-input m-2" name="qtd10" id="qtd10" value="<?php echo exibirCampo($dados['qtd10']);?>" readonly>
+            <input type="text" class="form-control hide qtd-input m-2" name="qtd11" id="qtd11" value="<?php echo exibirCampo($dados['qtd11']);?>" readonly>
+            <input type="text" class="form-control hide qtd-input m-2" name="qtd12" id="qtd12" value="<?php echo exibirCampo($dados['qtd12']);?>" readonly>
+            <input type="text" class="form-control hide qtd-input m-2" name="qtd13" id="qtd13" value="<?php echo exibirCampo($dados['qtd13']);?>" readonly>
+            <input type="text" class="form-control hide qtd-input m-2" name="qtd14" id="qtd14" value="<?php echo exibirCampo($dados['qtd14']);?>" readonly>
+            <input type="text" class="form-control hide qtd-input m-2" name="qtd15" id="qtd15" value="<?php echo exibirCampo($dados['qtd15']);?>" readonly>
+            <input type="text" class="form-control hide qtd-input m-2" name="qtd16" id="qtd16" value="<?php echo exibirCampo($dados['qtd16']);?>" readonly>
+           
+           
+        </div>
+
+        <div class="form-group col-2">
+            <label for="qtdItens">Valor (Un)</label>
+            <input type="text" class="form-control hide valor-inputs m-2" name="qtdTotal1" id="qtdTotal1" value="<?php echo exibirCampo($dados['preco1']);?>" readonly>
+            <input type="text" class="form-control hide valor-inputs m-2" name="qtdTotal2" id="qtdTotal2" value="<?php echo exibirCampo($dados['preco2']);?>" readonly>
+            <input type="text" class="form-control hide valor-inputs m-2" name="qtdTotal3" id="qtdTotal3" value="<?php echo exibirCampo($dados['preco3']);?>" readonly>
+            <input type="text" class="form-control hide valor-inputs m-2" name="qtdTotal4" id="qtdTotal4" value="<?php echo exibirCampo($dados['preco4']);?>" readonly>
+            <input type="text" class="form-control hide valor-inputs m-2" name="qtdTotal5" id="qtdTotal5" value="<?php echo exibirCampo($dados['preco5']);?>" readonly>
+            <input type="text" class="form-control hide valor-inputs m-2" name="qtdTotal6" id="qtdTotal6" value="<?php echo exibirCampo($dados['preco6']);?>" readonly>
+            <input type="text" class="form-control hide valor-inputs m-2" name="qtdTotal7" id="qtdTotal7" value="<?php echo exibirCampo($dados['preco7']);?>" readonly>
+            <input type="text" class="form-control hide valor-inputs m-2" name="qtdTotal8" id="qtdTotal8" value="<?php echo exibirCampo($dados['preco8']);?>" readonly>
+            <input type="text" class="form-control hide valor-inputs m-2" name="qtdTotal9" id="qtdTotal9" value="<?php echo exibirCampo($dados['preco9']);?>" readonly>
+            <input type="text" class="form-control hide valor-inputs m-2" name="qtdTotal10" id="qtdTotal10" value="<?php echo exibirCampo($dados['preco10']);?>" readonly>
+            <input type="text" class="form-control hide valor-inputs m-2" name="qtdTotal11" id="qtdTotal11" value="<?php echo exibirCampo($dados['preco11']);?>" readonly>
+            <input type="text" class="form-control hide valor-inputs m-2" name="qtdTotal12" id="qtdTotal12" value="<?php echo exibirCampo($dados['preco12']);?>" readonly>
+            <input type="text" class="form-control hide valor-inputs m-2" name="qtdTotal13" id="qtdTotal13" value="<?php echo exibirCampo($dados['preco13']);?>" readonly>
+            <input type="text" class="form-control hide valor-inputs m-2" name="qtdTotal14" id="qtdTotal14" value="<?php echo exibirCampo($dados['preco14']);?>" readonly>
+            <input type="text" class="form-control hide valor-inputs m-2" name="qtdTotal15" id="qtdTotal15" value="<?php echo exibirCampo($dados['preco15']);?>" readonly>
+            <input type="text" class="form-control hide valor-inputs m-2" name="qtdTotal16" id="qtdTotal16" value="<?php echo exibirCampo($dados['preco16']);?>" readonly>
+            <br>
+            <p class="tItens mt-2">Total em Peças</p>
             <p class="tItens">Mão de Obra</p>
             <p class="tItens">Terceiros</p>
         </div>
 
+       
+
+       
+
         <div class="form-group col-3">
-            <label for="priceItens">Preço</label>
-            <input type="text" class="form-control hide item-input m-2" name="preco1" id="iten-1" value="<?php echo exibirCampo($dados['preco1']);?>" readonly>
-            <input type="text" class="form-control hide item-input m-2" name="preco2" id="iten-2" value="<?php echo exibirCampo($dados['preco2']);?>" readonly>
-            <input type="text" class="form-control hide item-input m-2" name="preco3" id="iten-3" value="<?php echo exibirCampo($dados['preco3']);?>" readonly>
-            <input type="text" class="form-control hide item-input m-2" name="preco4" id="iten-4" value="<?php echo exibirCampo($dados['preco4']);?>" readonly>
-            <input type="text" class="form-control hide item-input m-2" name="preco5" id="iten-5" value="<?php echo exibirCampo($dados['preco5']);?>" readonly>
-            <input type="text" class="form-control hide item-input m-2" name="preco6" id="iten-6" value="<?php echo exibirCampo($dados['preco6']);?>" readonly>
-            <input type="text" class="form-control hide item-input m-2" name="preco7" id="iten-7" value="<?php echo exibirCampo($dados['preco7']);?>" readonly>
-            <input type="text" class="form-control hide item-input m-2" name="preco8" id="iten-8" value="<?php echo exibirCampo($dados['preco8']);?>" readonly>
-            <input type="text" class="form-control hide item-input m-2" name="preco9" id="iten-9" value="<?php echo exibirCampo($dados['preco9']);?>" readonly>
-            <input type="text" class="form-control hide item-input m-2" name="preco10" id="iten-10" value="<?php echo exibirCampo($dados['preco10']);?>" readonly>
-            <input type="text" class="form-control hide item-input m-2" name="preco11" id="iten-11" value="<?php echo exibirCampo($dados['preco11']);?>" readonly>
-            <input type="text" class="form-control hide item-input m-2" name="preco12" id="iten-12" value="<?php echo exibirCampo($dados['preco12']);?>" readonly>
-            <input type="text" class="form-control hide item-input m-2" name="preco13" id="iten-13" value="<?php echo exibirCampo($dados['preco13']);?>" readonly>
-            <input type="text" class="form-control hide item-input m-2" name="preco14" id="iten-14" value="<?php echo exibirCampo($dados['preco14']);?>" readonly>
-            <input type="text" class="form-control hide item-input m-2" name="preco15" id="iten-15" value="<?php echo exibirCampo($dados['preco15']);?>" readonly>
-            <input type="text" class="form-control hide item-input m-2" name="preco16" id="iten-16" value="<?php echo exibirCampo($dados['preco16']);?>" readonly>
+            <label for="priceItens">Total</label>
+            <input type="text" class="form-control hide item-input m-2" name="preco1" id="iten-1" value="<?php echo exibirCampo($dados['qtdTotal1']);?>" readonly>
+            <input type="text" class="form-control hide item-input m-2" name="preco2" id="iten-2" value="<?php echo exibirCampo($dados['qtdTotal2']);?>" readonly>
+            <input type="text" class="form-control hide item-input m-2" name="preco3" id="iten-3" value="<?php echo exibirCampo($dados['qtdTotal3']);?>" readonly>
+            <input type="text" class="form-control hide item-input m-2" name="preco4" id="iten-4" value="<?php echo exibirCampo($dados['qtdTotal4']);?>" readonly>
+            <input type="text" class="form-control hide item-input m-2" name="preco5" id="iten-5" value="<?php echo exibirCampo($dados['qtdTotal5']);?>" readonly>
+            <input type="text" class="form-control hide item-input m-2" name="preco6" id="iten-6" value="<?php echo exibirCampo($dados['qtdTotal6']);?>" readonly>
+            <input type="text" class="form-control hide item-input m-2" name="preco7" id="iten-7" value="<?php echo exibirCampo($dados['qtdTotal7']);?>" readonly>
+            <input type="text" class="form-control hide item-input m-2" name="preco8" id="iten-8" value="<?php echo exibirCampo($dados['qtdTotal8']);?>" readonly>
+            <input type="text" class="form-control hide item-input m-2" name="preco9" id="iten-9" value="<?php echo exibirCampo($dados['qtdTotal9']);?>" readonly>
+            <input type="text" class="form-control hide item-input m-2" name="preco10" id="iten-10" value="<?php echo exibirCampo($dados['qtdTotal10']);?>" readonly>
+            <input type="text" class="form-control hide item-input m-2" name="preco11" id="iten-11" value="<?php echo exibirCampo($dados['qtdTotal11']);?>" readonly>
+            <input type="text" class="form-control hide item-input m-2" name="preco12" id="iten-12" value="<?php echo exibirCampo($dados['qtdTotal12']);?>" readonly>
+            <input type="text" class="form-control hide item-input m-2" name="preco13" id="iten-13" value="<?php echo exibirCampo($dados['qtdTotal13']);?>" readonly>
+            <input type="text" class="form-control hide item-input m-2" name="preco14" id="iten-14" value="<?php echo exibirCampo($dados['qtdTotal14']);?>" readonly>
+            <input type="text" class="form-control hide item-input m-2" name="preco15" id="iten-15" value="<?php echo exibirCampo($dados['qtdTotal15']);?>" readonly>
+            <input type="text" class="form-control hide item-input m-2" name="preco16" id="iten-16" value="<?php echo exibirCampo($dados['qtdTotal16']);?>" readonly>
+            <br>
 
             <input type="text" class="form-control item-input m-2" name="totpecas" id="tItens" value="<?php echo $dados['valorPecas'];?>" readonly>
-            <input type="text" class="form-control item-input m-2 mt-2" name="totmDobra" id="tot-mDobra" value="<?php echo $dados['valorMobra'];?>" readonly>
-            <input type="text" class="form-control item-input m-2 mt-3" name="totterceiros" id="tot-terceiros" value="<?php echo exibirCampo($dados['valorTerceiros']);?>" readonly>
+            <input type="text" class="form-control item-input m-2" name="totmDobra" id="tot-mDobra" value="<?php echo $dados['valorMobra'];?>" readonly>
+            <input type="text" class="form-control item-input m-2" name="totterceiros" id="tot-terceiros" value="<?php echo exibirCampo($dados['valorTerceiros']);?>" readonly>
         </div>    
+
+       
+
+       
+
+        
     </div>
 
         <div class="form-row">
