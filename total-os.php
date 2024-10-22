@@ -28,7 +28,12 @@ $dataOsTotal = mysqli_num_rows($resultTotal);
 <?php include_once('painel.php') ?>
 
 
-    
+    <!-- Campo de Data -->
+    <label for="dataEntrada">Selecione uma data:</label>
+    <input type="date" id="dataEntrada" name="dataEntrada">
+
+    <!-- Botão de Filtro -->
+    <button id="filtrarBtn">Filtrar</button>
 
 
     <!-- inicio da listagem das o.s -->
@@ -42,11 +47,11 @@ $dataOsTotal = mysqli_num_rows($resultTotal);
 				<th scope="col">Placa</th>
 				<th scope="col">Data-Entarda</th>
 				<!-- <th scope="col">Valor das peças</th>
-				<th scope="col">Mão de Obra</th>
-				<th scope="col">Total</th> -->
+				<th scope="col">Mão de Obra</th>-->
+				<th scope="col">Total</th> 
 			</tr>
 		</thead>
-        <tbody>
+        <tbody id="tabelaResultados">
         <?php
 while ($OSTotal = mysqli_fetch_object($resultTotal)) {
 
@@ -64,8 +69,8 @@ while ($OSTotal = mysqli_fetch_object($resultTotal)) {
         <td><?= $OSTotal->placa; ?></td>
         <td><?= date("d/m/Y", strtotime($OSTotal->data_entrada)) ?></td>
        <!--  <td><?= $OSTotal->valorPecas; ?></td>
-        <td><?= $OSTotal->valorMobra; ?></td>
-        <td><?= $OSTotal->valorTotal; ?></td> -->
+        <td><?= $OSTotal->valorMobra; ?></td>-->
+        <td><?= $OSTotal->valorTotal; ?></td> 
     </tr>
 <?php } ?>
 </tbody>
@@ -84,6 +89,32 @@ while ($OSTotal = mysqli_fetch_object($resultTotal)) {
  
 </footer> -->
 </main>
+
+<script>
+        document.getElementById("filtrarBtn").addEventListener("click", function() {
+            // Pega a data selecionada
+            const dataSelecionada = document.getElementById("dataEntrada").value;
+
+            // Verifica se a data foi selecionada
+            if (dataSelecionada) {
+                // Envia a data para o back-end via AJAX
+                const xhr = new XMLHttpRequest();
+                xhr.open("POST", "filtrar_ordens.php", true);
+                xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                xhr.onreadystatechange = function () {
+                    if (xhr.readyState === 4 && xhr.status === 200) {
+                        // Atualiza a tabela com os resultados
+                        document.getElementById("tabelaResultados").innerHTML = xhr.responseText;
+                    }
+                };
+                xhr.send("dataEntrada=" + dataSelecionada);
+            } else {
+                alert("Por favor, selecione uma data.");
+            }
+        });
+    </script>
+
+    
 <?php require_once "include/footer.php";?>
 
 

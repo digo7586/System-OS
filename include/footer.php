@@ -1,4 +1,4 @@
-<footer class="footer-bg">
+<footer class="footer-bg" style="background-color: #efe9fe;">
 <a href="https://wa.me/" id="whats" target="_blank">
 <i style="margin-top:16px" class="fa fa-whatsapp"></i>
 </a>

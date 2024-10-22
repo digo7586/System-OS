@@ -137,6 +137,27 @@ if(isset($_POST['concluir'])){
 ?>
 
 <form action="<?php echo $_SERVER['PHP_SELF'];?>" method="POST" class="col-12 col-md-10 mx-auto my-5">
+<div class="card-container">
+        <div>
+
+            <img src="assets/img/autome.png" class="logoForm" alt="logo">
+        </div>
+
+
+        <div class="texto">
+            <h2 class="title">AUTOMECÂNICA DO GORDO</h2>
+            <span class="icon-text">
+                <i class="fa-brands fa-whatsapp"></i>
+                <p class="phone">(19) 98348-2130</p>
+            </span>
+            <span class="icon-text">
+                <i class="fa-solid fa-location-dot"></i>
+                <p class="address">Rua Pedro Gonçalves de Lima, 735</p>
+            </span>
+            <p class="address">Residencial Cidade Nova - Iracemápolis</p>
+        </div>
+
+    </div>
 <h2 class="py-4 mx-auto bg-light text-center mb-4">Ordem de Serviço</h2>
     <div class="form-group">
         <label for='cliente'>Cliente</label>
@@ -242,7 +263,7 @@ if(isset($_POST['concluir'])){
            
         </div>
 
-        <div class="form-group col-1">
+        <div class="form-group col-2">
             <label for="qtdItens">Total</label>
             <input type="text" class="form-control hide qtdTotal-input m-2" name="qtdTotal1" id="qtdTotal1" value="<?php echo $qtdTotal1;?>" readonly>
             <input type="text" class="form-control hide qtdTotal-input m-2" name="qtdTotal2" id="qtdTotal2" value="<?php echo $qtdTotal2;?>" readonly>

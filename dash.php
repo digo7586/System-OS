@@ -88,6 +88,8 @@ $saidas = formatarMoeda($saidas);
 $gastosPecas = formatarMoeda($gastosPecas);
 $gastosterceiros = formatarMoeda($gastosterceiros);
 
+
+
 ?>
 
 <link rel="stylesheet" href="assets/css/styleHome.css" />
@@ -118,7 +120,7 @@ $gastosterceiros = formatarMoeda($gastosterceiros);
             <div class="card entrada shadow-sm">
                 <div class="card-body">
                     <h5 class="card-title">Entradas</h5>
-                    <h4 class="card-value">R$ <span><?= $ganhos ?></span></h4>
+                    <h4 class="card-value">R$ <span><?= $ganhos = formatarMoeda($ganhos);  ?></span></h4>
                 </div>
             </div>
         </div>
@@ -126,7 +128,7 @@ $gastosterceiros = formatarMoeda($gastosterceiros);
             <div class="card caixa shadow-sm">
                 <div class="card-body">
                     <h5 class="card-title">Caixa</h5>
-                    <h4 class="card-value text-success">R$ <span><?= $ganho ?></span></h4>
+                    <h4 class="card-value text-success">R$ <span><?= $$ganho = formatarMoeda($ganho); ?></span></h4>
                 </div>
             </div>
         </div>
@@ -134,7 +136,7 @@ $gastosterceiros = formatarMoeda($gastosterceiros);
             <div class="card saida shadow-sm">
                 <div class="card-body">
                     <h5 class="card-title">Saídas</h5>
-                    <h4 class="card-value text-danger">R$ <span><?= $saidas ?></span></h4>
+                    <h4 class="card-value text-danger">R$ <span><?= $saidas = formatarMoeda($saidas); ?></span></h4>
                 </div>
             </div>
         </div>
@@ -142,7 +144,7 @@ $gastosterceiros = formatarMoeda($gastosterceiros);
             <div class="card pecas shadow-sm">
                 <div class="card-body">
                     <h5 class="card-title">Peças</h5>
-                    <h4 class="card-value text-primary">R$ <span><?= $gastosPecas ?></span></h4>
+                    <h4 class="card-value text-primary">R$ <span><?= $gastosPecas = formatarMoeda($gastosPecas); ?></span></h4>
                 </div>
             </div>
         </div>
@@ -152,7 +154,7 @@ $gastosterceiros = formatarMoeda($gastosterceiros);
             <div class="card terceiro shadow-sm">
                 <div class="card-body">
                     <h5 class="card-title">Terceiros</h5>
-                    <h4 class="card-value text-warning">R$ <span><?= $gastosterceiros ?></span></h4>
+                    <h4 class="card-value text-warning">R$ <span><?= $gastosterceiros = formatarMoeda($gastosterceiros);     ?></span></h4>
                 </div>
             </div>
         </div>
